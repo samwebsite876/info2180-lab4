@@ -18,7 +18,7 @@ document.getElementById("searchButton").addEventListener("click", function () {
                 if (response.startsWith("<h3>")) {
                     resultDiv.innerHTML = response; 
                 } else {
-                    resultDiv.innerHTML = "<p class='not-found'>SUPERHERO NOT FOUND</p>"; // Not found
+                    resultDiv.innerHTML = "<p class='not-found'>SUPERHERO NOT FOUND</p>";
                 }
             } else {
                 resultDiv.innerHTML = response;
