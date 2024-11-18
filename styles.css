@@ -1,12 +1,120 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%; 
+    padding: 20px;
+}
+
+.title {
+    font-size: 3em;
+    background-color: #a1e57e; 
+    color: #ffffff; 
+    padding: 15px;
+    margin: 0;
     text-align: center;
 }
 
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
+.subtitle {
+    font-size: 1.5em;
+    color: #000000; 
+    margin: 20px 0 10px 10px; 
+    text-align: left; 
 }
 
-  
+.search-container {
+    display: flex;
+    align-items: center;
+    margin: 20px 10px;
+}
+
+#searchField {
+    flex: 1; 
+    padding: 15px;
+    font-size: 1.3em;
+    background-color: #ffffff; 
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    margin-right: 10px;
+    transition: border-color 0.3s ease;
+}
+
+#searchField:focus {
+    border-color: #3498db; 
+    outline: none;
+}
+
+#searchButton {
+    padding: 15px 30px;
+    font-size: 1.4em;
+    background-color: #397a43; 
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#searchButton:hover {
+    background-color: #2d6236;
+    transform: scale(1.1);
+}
+
+.result-heading {
+    font-size: 1.8em;
+    color: #000000; 
+    margin: 30px 10px 10px 10px;
+}
+
+.result-line {
+    border: 1px solid #ccc;
+    margin: 5px 10px 20px 10px;
+}
+
+#result {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #ecf0f1;
+    margin: 0 10px;
+    color: black; 
+    font-size: 1.2em;
+    line-height: 1.5;
+}
+
+#result p.not-found {
+    color: red;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 1.8em;
+    color: black; 
+    margin-bottom: 10px;
+}
+
+h4 {
+    font-size: 1.2em;
+    color: black;
+    margin: 0;
+}
+
+p {
+    color: black; 
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style-type: disc; 
+    padding-left: 40px; 
+}
+
+li {
+    font-size: 1.2em;
+    color: black; 
+    margin-bottom: 10px;
+}

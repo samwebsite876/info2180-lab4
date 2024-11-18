@@ -1,27 +1,36 @@
-document.getElementById("searchButton").addEventListener("click", function() {
-    // Create an XMLHttpRequest object
-    let xhr = new XMLHttpRequest();
-    
-    // Configure it: GET-request for the URL /superheroes.php
-    xhr.open("GET", "superheroes.php", true);
-    
-    // Set up the onload callback
-    xhr.onload = function() {
-        if (xhr.status === 200) { // success
-            // Display the result in an alert
-            alert(xhr.responseText);
+document.getElementById("searchButton").addEventListener("click", function () {
+    const query = document.getElementById("searchField").value.trim();
+
+    const sanitizedQuery = encodeURIComponent(query);
+
+    const xhr = new XMLHttpRequest();
+
+    const url = sanitizedQuery ? `superheroes.php?query=${sanitizedQuery}` : "superheroes.php";
+    xhr.open("GET", url, true);
+
+    xhr.onload = function () {
+        const resultDiv = document.getElementById("result");
+
+        if (xhr.status === 200) {
+            const response = xhr.responseText.trim();
+
+            if (sanitizedQuery) {
+                if (response.startsWith("<h3>")) {
+                    resultDiv.innerHTML = response; 
+                } else {
+                    resultDiv.innerHTML = "<p class='not-found'>SUPERHERO NOT FOUND</p>"; // Not found
+                }
+            } else {
+                resultDiv.innerHTML = response;
+            }
         } else {
-            alert("Error loading superheroes list.");
+            resultDiv.innerHTML = "<p>Error loading superheroes list.</p>";
         }
     };
-    
-    // Handle network errors
-    xhr.onerror = function() {
-        alert("Request failed");
+
+    xhr.onerror = function () {
+        document.getElementById("result").innerHTML = "<p>Request failed.</p>";
     };
 
-    // Send the request
     xhr.send();
 });
-
-  
